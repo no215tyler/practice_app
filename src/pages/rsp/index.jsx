@@ -7,13 +7,22 @@ export default class Index extends React.Component {
       <div className="flex items-center flex-col">
         <h1 className="text-3xl font-bold text-center my-3">じゃんけんページ</h1>
         <div className="flex my-3">
-          <button>
+          <button
+            onClick={() => {
+              console.log('グーがクリックされました')
+            }}>
             <img src="images/rock.jpeg" alt="rock" className="h-[100px] w-[100px] border-2"></img>
           </button>
-          <button>
+          <button 
+            onClick={() => {
+              console.log('パーがクリックされました')
+            }}>
             <img src="images/paper.jpeg" alt="paper" className="h-[100px] w-[100px] border-2"></img>
           </button>
-          <button>
+          <button 
+            onClick={() => {
+              console.log('チョキがクリックされました')
+            }}>
             <img src="images/scissors.jpeg" alt="scissors" className="h-[100px] w-[100px] border-2"></img>
           </button>
         </div>
