@@ -2,25 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Hand from "../../components/hand";
 
-export default class Index extends React.Component {
-  constructor() {
-    super();
+enum HandType {
+  Rock,
+  Scissors,
+  Paper
+}
+
+interface State {
+  selectHand: HandType;
+}
+
+export default class Index extends React.Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
     this.state = {
-      selectHand: 0,
+      selectHand: HandType.Rock,
     };
   }
 
-  handleOnClick = (val) => {
+  handleOnClick = (val: any): void => {
     this.setState({selectHand: val});
   }
 
   render() {
-    const handTypes = [0, 1, 2]
+    const handTypes: HandType[] = [HandType.Rock, HandType.Scissors, HandType.Paper];
     return (
       <div className="flex items-center flex-col">
         <h1 className="text-3xl font-bold text-center my-3">じゃんけんページ</h1>
         <div className="flex my-3">
-          {handTypes.map((handType) => (
+          {handTypes.map((handType: HandType) => (
             <Hand 
               selectHand={handType} 
               selectedHand={this.state.selectHand} 
